@@ -27,6 +27,7 @@ termux_step_host_build() {
 }
 
 termux_step_make() {
+	termux_setup_ninja
 	"${TERMUX_PKG_HOSTBUILD_DIR}"/3rd/luamake/luamake \
 		-cc "${CC}" \
 		-flags "${CFLAGS} ${CPPFLAGS}" \
@@ -44,7 +45,7 @@ termux_step_make_install() {
 		# determine its version, so provide it manually.
 		if [ "\$1" = "--version" ]; then
 			echo "${TERMUX_PKG_NAME}: ${TERMUX_PKG_VERSION}"
-		else 
+		else
 			TMPPATH=\$(mktemp -d "${TERMUX_PREFIX}/tmp/${TERMUX_PKG_NAME}.XXXX")
 
 			exec ${INSTALL_DIR}/bin/Android/${TERMUX_PKG_NAME} \\
