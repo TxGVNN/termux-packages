@@ -58,6 +58,7 @@ TERMUX_PKG_HAS_DEBUG=false
 # Debug build succeeds but make install with:
 # cp: cannot stat '../src/projects/openmp/runtime/exports/common.min.50.ompt.optional/include/omp.h': No such file or directory
 # common.min.50.ompt.optional should be common.deb.50.ompt.optional when doing debug build
+TEMUX_MAKE_PROCESSES=1
 
 termux_step_host_build() {
 	termux_setup_cmake
